@@ -41,11 +41,9 @@ function Login({ login }) {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log(loginformData);
         let result = await login(loginformData);
         if (result.success === 'true') {
             navigate("/bmr");
-            console.log("LoggedIN");
         }
         else {
             setFormErrors(result.error);
