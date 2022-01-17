@@ -10,25 +10,19 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useEffect, useState, useContext } from 'react';
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Alert from './Alert';
-import UserContext from './UserContext';
+
 
 function Login({ login }) {
     const theme = createTheme();
     const navigate = useNavigate();
-    const { currentUser } = useContext(UserContext);
     const [formErrors, setFormErrors] = useState([]);
     const [loginformData, setLoginFormData] = useState({
         username: "",
         password: ""
     });
-    useEffect(() => {
-        if (currentUser) {
-            navigate("/bmr");
-        }
-    }, [currentUser]);
 
     const handleChange = (evt) => {
         const { name, value } = evt.target;
@@ -42,7 +36,7 @@ function Login({ login }) {
     async function handleSubmit(event) {
         event.preventDefault();
         let result = await login(loginformData);
-        if (result.success === 'true') {
+        if (result.success === true) {
             navigate("/bmr");
         }
         else {

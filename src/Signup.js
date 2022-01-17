@@ -9,15 +9,14 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import { useState, useEffect, useContext } from 'react';
+import { useState } from 'react';
 import Alert from './Alert';
-import UserContext from './UserContext';
 import { useNavigate } from "react-router-dom";
 
 function Signup({ signUp }) {
 
     const theme = createTheme();
-    const { currentUser } = useContext(UserContext);
+    const navigate = useNavigate();
     const INTIAL_DATA = {
         username: "",
         password: "",
@@ -25,16 +24,9 @@ function Signup({ signUp }) {
         lastName: "",
         email: ""
     }
-    useEffect(() => {
-        if (currentUser) {
-            navigate("/bmr");
-        }
-    }, [currentUser]);
 
     const [signUpFormData, setSignUpFromData] = useState(INTIAL_DATA);
     const [formErrors, setFormErrors] = useState([]);
-
-    const navigate = useNavigate();
 
     const handleChange = (evt) => {
         const { name, value } = evt.target;
@@ -48,7 +40,7 @@ function Signup({ signUp }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const result = await signUp(signUpFormData);
-        if (result.success === 'true') {
+        if (result.success === true) {
             navigate('/bmr');
             setSignUpFromData(INTIAL_DATA);
         }

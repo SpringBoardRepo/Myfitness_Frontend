@@ -1,8 +1,6 @@
 import { Card, Col } from "react-bootstrap";
 import "./Meal.css";
 import { Button } from 'reactstrap';
-import UserContext from "../UserContext";
-import { useContext } from "react";
 
 function SavedMealsCard({ mealId, mealName, calories, img, handleRemove }) {
 
