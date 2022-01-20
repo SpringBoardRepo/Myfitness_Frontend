@@ -88,7 +88,7 @@ function App() {
   }
 
   async function removeMealsFromList(mealId) {
-    let meal = await MyfitnessApi.remove(currentUser.username, mealId);
+    await MyfitnessApi.remove(currentUser.username, mealId);
   }
 
   if (!infoLoaded) return <LoadingSpinner />;
