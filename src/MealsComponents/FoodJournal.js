@@ -32,7 +32,7 @@ function FoodJournal() {
                 userMeals.length
                     ? <MealsTable meals={userMeals} handleRemove={handleRemove} />
                     : <div className='conatainer FoodJournalTitle'>
-                        <img src={image} className='image' />
+                        <img src={image} className='image' alt="recipe" />
                         <h6>Looks like you haven't added anything to your Food Journal yet.  </h6>
                         <div>
                             <Link to='/meals'>

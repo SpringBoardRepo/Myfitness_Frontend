@@ -26,7 +26,7 @@ function Meal({ meal }) {
         }
         getMealInfo();
         setMealLoaded(false);
-    }, [meal.id])
+    }, [meal.id, URL])
     if (!mealLoaded) return <LoadingSpinner />;
     return (
         <>

@@ -21,7 +21,7 @@ function Meals() {
             }
         }
         getMeals();
-    }, [calories]);
+    }, [calories, URL]);
 
     return (
         <>
