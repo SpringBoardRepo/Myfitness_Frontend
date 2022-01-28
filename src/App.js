@@ -77,9 +77,7 @@ function App() {
   }
 
   async function addMealsToUsers(data) {
-
-    let res = await MyfitnessApi.addToFoodJournal(currentUser.username, data);
-    //setSavedMeals(res);
+     await MyfitnessApi.addToFoodJournal(currentUser.username, data);
   }
 
   async function getMeals() {
